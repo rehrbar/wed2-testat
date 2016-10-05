@@ -12,7 +12,7 @@ module.exports.add = function(req, res) {
 
 module.exports.addForm = function(req, res) {
   // TODO implement addForm method
-  res.send('add form');
+  res.render("edit", {title:"New Note"});
 }
 
 module.exports.editForm = function(req, res) {
