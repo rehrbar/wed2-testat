@@ -6,8 +6,13 @@ module.exports.showIndex = function(req, res) {
 }
 
 module.exports.add = function(req, res) {
-  // TODO implement add method
-  res.send('add method');
+  store.add(
+    req.body.title,
+    req.body.description,
+    req.body.importance,
+    req.body.dueDate,
+    () => res.redirect("/")
+  );
 }
 
 module.exports.addForm = function(req, res) {
