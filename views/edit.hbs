@@ -1,18 +1,27 @@
 <h1>{{title}}</h1>
-<form action="/notes" method="post">
-    <!-- TODO use action variable -->
+<form action="{{action}}" method="post">
     <!-- TODO prefill fields -->
     <div>
         <label for="inputTitle">Title</label>
-        <input type="text" id="inputTitle" name="title"/>
+        <input type="text" id="inputTitle" name="title" value="{{note.title}}"/>
     </div>
     <div>
         <label for="inputDescription">Description</label>
-        <textarea id="inputDescription" name="description"></textarea>
+        <textarea id="inputDescription" name="description">{{note.description}}</textarea>
     </div>
     <div>
         <label for="inputImportance">Importance</label>
-        <input type="number" id="inputImportance" name="importance" min="1" max="5"/>
+        <input type="number" id="inputImportance" name="importance" min="1" max="5" value="{{note.importance}}"/>
+    </div>
+    <div>
+        <label for="inputDueDate">Due Date</label>
+        <input type="date" id="inputDueDate" name="dueDate" value="{{note.dueDate}}"/>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" name="finished" {{#if note.finished}}checked="checked"{{/if}}"/>
+            Finished
+        </label>
     </div>
     <button type="submit">Save</button>
     <a href="/">Cancel</a>
