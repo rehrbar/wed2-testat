@@ -1,3 +1,17 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 <p><a href="/notes/new" title="Create new Note">Create new Note</a></p>
+<div class="row">
+    <a class="button" href="/notes/new" >Create new note</a>
+    <a class="button">Switch style</a>
+</div>
+
+<div class="row">
+    <a class="button" href="?sort_dueDate">By due date</a>
+    <a class="button" href="?sort_createDate">By create date</a>
+
+    <a class="button" href="?sort_importance">By importance</a>
+
+    <!--TODO switch show / Hide finished-->
+    <a class="button" href="?show_finished">Show finished</a>
+</div>
