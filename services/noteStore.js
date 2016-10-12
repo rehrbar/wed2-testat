@@ -20,16 +20,32 @@ function publicAdd(title, description, importance, dueDate, callback) {
   });
 }
 
-function publicEdit() {
-  // TODO implement publicEdit
+function publicEdit(id, title, description, importance, dueDate, callback) {
+  "use strict";
+  var note = new Note(title, description, importance, dueDate);
+  db.update({id:id}, {$set:note}, () => {
+    if(typeof callback === "function"){
+      callback();
+    }
+  });
 }
 
-function publicGet() {
-  // TODO implement publicGet
+function publicGet(id, callback) {
+  "use strict";
+  db.findOne({_id:id}, (err, doc) => {
+    if(typeof callback === "function"){
+      callback(err, doc);
+    }
+  });
 }
 
 function publicGetAll() {
-  // TODO implement publicGetAll
+  "use strict";
+  db.find({}, (err, doc) => {
+    if(typeof callback === "function"){
+      callback(err, doc);
+    }
+  });
 }
 
 
