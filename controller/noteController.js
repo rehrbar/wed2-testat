@@ -3,7 +3,8 @@ var store = require("../services/noteStore.js");
 module.exports.showIndex = function(req, res) {
   "use strict";
   // TODO add filter
-  store.all((notes)=>{
+  var showFinished = typeof req.query.show_finished !== "undefined";
+  store.all(showFinished, (notes)=>{
 
     var orderBy = req.query.sort;
     // TODO test sorting

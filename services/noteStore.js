@@ -42,9 +42,11 @@ function publicGet(id, callback) {
   });
 }
 
-function publicGetAll(callback) {
+function publicGetAll(showFinished, callback) {
   "use strict";
-  db.find({}, (err, doc) => {
+  var filter = {finished: false};
+  if(showFinished) filter = {};
+  db.find(filter, (err, doc) => {
     callback && callback(doc);
   });
 }
