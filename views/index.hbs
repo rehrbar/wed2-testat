@@ -7,11 +7,36 @@
 </div>
 
 <div class="row">
-    <a class="button" href="?sort_dueDate">By due date</a>
-    <a class="button" href="?sort_createDate">By create date</a>
-
-    <a class="button" href="?sort_importance">By importance</a>
-
+    {{#if-eq orderBy "dueDate"}}
+        <a class="button" href="?sort=dueDate_desc">By due date</a>
+    {{else}}
+        <a class="button" href="?sort=dueDate">By due date</a>
+    {{/if-eq}}
+    {{#if-eq orderBy "createDate"}}
+        <a class="button" href="?sort=createDate_desc">By create date</a>
+    {{else}}
+        <a class="button" href="?sort=createDate">By create date</a>
+    {{/if-eq}}
+    {{#if-eq orderBy "importance"}}
+        <a class="button" href="?sort=importance_desc">By importance</a>
+    {{else}}
+        <a class="button" href="?sort=importance">By importance</a>
+    {{/if-eq}}
+    
     <!--TODO switch show / Hide finished-->
     <a class="button" href="?show_finished">Show finished</a>
+</div>
+
+<div>
+    <!-- TODO replace with real interface; this is just for testing sorting/filters -->
+    {{#each notes}}
+        <dl>
+            <dt>Title</dt> <dd>{{title}}</dd>
+            <dt>Desc</dt> <dd>{{description}}</dd>
+            <dt>Importance</dt> <dd>{{importance}}</dd>
+            <dt>CreateDate</dt> <dd>{{createDate}}</dd>
+            <dt>DueDate</dt> <dd>{{dueDate}}</dd>
+            <dt>Finished</dt> <dd>{{finished}}</dd>
+        </dl>
+    {{/each}}
 </div>

@@ -5,6 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var hbs = require('hbs');
+hbs.registerHelper("if-eq", (a, b, options) => {
+  "use strict";
+  if(a == b){
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 var routes = require('./routes/notes');
 
 var app = express();

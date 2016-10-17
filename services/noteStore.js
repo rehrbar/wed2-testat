@@ -15,9 +15,7 @@ function publicAdd(title, description, importance, dueDate, finished, callback) 
   "use strict";
   var note = new Note(title, description, importance, dueDate, finished);
   db.insert(note, (err, newDoc) => {
-    if (typeof callback === "function") {
-      callback(err, newDoc);
-    }
+    callback && callback(err, newDoc);
   });
 }
 
@@ -33,27 +31,21 @@ function publicEdit(id, title, description, importance, dueDate, finished, callb
       }
     },
     () => {
-      if (typeof callback === "function") {
-        callback();
-      }
+      callback && callback();
     });
 }
 
 function publicGet(id, callback) {
   "use strict";
   db.findOne({_id: id}, (err, doc) => {
-    if (typeof callback === "function") {
-      callback(err, doc);
-    }
+    callback && callback(err, doc);
   });
 }
 
-function publicGetAll() {
+function publicGetAll(callback) {
   "use strict";
   db.find({}, (err, doc) => {
-    if (typeof callback === "function") {
-      callback(err, doc);
-    }
+    callback && callback(doc);
   });
 }
 
