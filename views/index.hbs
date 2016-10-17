@@ -7,6 +7,7 @@
 </div>
 
 <div class="row">
+    {{query}}
     {{#if-eq orderBy "dueDate"}}
         <a class="button" href="?sort=dueDate_desc">By due date</a>
     {{else}}
@@ -24,7 +25,7 @@
     {{/if-eq}}
 
     <!--TODO switch show / Hide finished-->
-    <a class="button" href="?show_finished">Show finished</a>
+    <a class="button" href="?{{query}}">Show finished</a>
 </div>
 
 <div>

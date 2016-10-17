@@ -1,38 +1,35 @@
+var qs = require("qs");
 var store = require("../services/noteStore.js");
 
 module.exports.showIndex = function(req, res) {
   "use strict";
-  // TODO add filter
-  var showFinished = typeof req.query.show_finished !== "undefined";
+  var query = {};
+  var showFinished = req.query.show_finished === "true";
+  var orderBy = req.query.sort;
+  query.sort = orderBy;
+  query.show_finished = !showFinished;
+
   store.all(showFinished, (notes)=>{
 
-    var orderBy = req.query.sort;
-    // TODO test sorting
     notes.sort((a, b) =>{
       switch(orderBy){
         case "createDate":
           return compareValues(a, b, "createDate");
-          break;
         case "createDate_desc":
           return compareValues(a, b, "createDate") * -1;
-          break;
         case "dueDate":
           return compareValues(a, b, "dueDate");
-          break;
         case "dueDate_desc":
           return compareValues(a, b, "dueDate") * -1;
-          break;
         case "importance":
           return compareValues(a, b, "importance");
-          break;
         case "importance_desc":
           return compareValues(a, b, "importance") * -1;
-          break;
         default:
           return 0;
       }
     });
-    res.render('index', { title: 'Express', notes: notes, orderBy: orderBy });
+    res.render('index', { title: 'Express', notes: notes, orderBy: orderBy, query: qs.stringify(query) });
   });
 };
 
