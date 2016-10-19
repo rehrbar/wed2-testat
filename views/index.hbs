@@ -7,25 +7,27 @@
 </div>
 
 <div class="row">
-    {{query}}
     {{#if-eq orderBy "dueDate"}}
-        <a class="button" href="?sort=dueDate_desc">By due date</a>
+        <a class="button" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
     {{else}}
-        <a class="button" href="?sort=dueDate">By due date</a>
+        <a class="button" href="{{{filter-url 'dueDate' ../finished}}}">By due date</a>
     {{/if-eq}}
     {{#if-eq orderBy "createDate"}}
-        <a class="button" href="?sort=createDate_desc">By create date</a>
+        <a class="button" href="{{{filter-url 'createDate_desc' ../finished}}}">By create date</a>
     {{else}}
-        <a class="button" href="?sort=createDate">By create date</a>
+        <a class="button" href="{{{filter-url 'createDate' ../finished}}}">By create date</a>
     {{/if-eq}}
     {{#if-eq orderBy "importance"}}
-        <a class="button" href="?sort=importance_desc">By importance</a>
+        <a class="button" href="{{{filter-url 'importance_desc' ../finished}}}">By importance</a>
     {{else}}
-        <a class="button" href="?sort=importance">By importance</a>
+        <a class="button" href="{{{filter-url 'importance' ../finished}}}">By importance</a>
     {{/if-eq}}
 
-    <!--TODO switch show / Hide finished-->
-    <a class="button" href="?{{query}}">Show finished</a>
+    {{#if finished}}
+        <a class="button" href="{{filter-url orderBy 'false'}}">Hide finished</a>
+    {{else}}
+        <a class="button" href="{{filter-url orderBy 'true'}}">Show finished</a>
+    {{/if}}
 </div>
 
 <div>

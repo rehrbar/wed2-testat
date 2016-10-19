@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var qs = require("qs");
 
 var hbs = require('hbs');
 hbs.registerHelper("if-eq", (a, b, options) => {
@@ -14,6 +15,10 @@ hbs.registerHelper("if-eq", (a, b, options) => {
     return options.inverse(this);
   }
 });
+hbs.registerHelper("filter-url", (sort, showFinished) => {
+  "use strict";
+  return "?" + qs.stringify({sort: sort, show_finished: showFinished});
+})
 
 var routes = require('./routes/notes');
 

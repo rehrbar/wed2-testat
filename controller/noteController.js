@@ -1,13 +1,9 @@
-var qs = require("qs");
 var store = require("../services/noteStore.js");
 
 module.exports.showIndex = function(req, res) {
   "use strict";
-  var query = {};
   var showFinished = req.query.show_finished === "true";
   var orderBy = req.query.sort;
-  query.sort = orderBy;
-  query.show_finished = !showFinished;
 
   store.all(showFinished, (notes)=>{
 
@@ -29,7 +25,7 @@ module.exports.showIndex = function(req, res) {
           return 0;
       }
     });
-    res.render('index', { title: 'Express', notes: notes, orderBy: orderBy, query: qs.stringify(query) });
+    res.render('index', { title: 'Express', notes: notes, orderBy: orderBy, finished: showFinished });
   });
 };
 
