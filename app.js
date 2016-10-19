@@ -14,6 +14,12 @@ hbs.registerHelper("if-eq", (a, b, options) => {
     return options.inverse(this);
   }
 });
+hbs.registerHelper('times', function(n, block) {
+  var accum = '';
+  for(var i = 0; i < n; ++i)
+    accum += block.fn(i);
+  return accum;
+});
 
 var routes = require('./routes/notes');
 
