@@ -33,6 +33,9 @@
     flex-direction: column;
     width: 100%;
     margin-bottom: 10px;
+    padding-bottom: 3px;
+    border-color: rgba(136, 136, 136, 0.27);
+    border-bottom: 1px solid;
 }
 .note div{
     display: flex;
@@ -149,6 +152,9 @@ textarea:focus,
 select:focus {
     border: 1px solid #33C3F0;
     outline: 0; }
+textarea:disabled{
+    background-color: rgba(232, 232, 232, 0.27);
+}
 label,
 legend {
     margin-bottom: .5rem;
