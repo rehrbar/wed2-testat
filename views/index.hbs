@@ -29,16 +29,17 @@
 <section class="notes">
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
     {{#each notes}}
-        <div class="note row">
-            <div class="meta row" >
-                <span ><time datetime="{{dueDate}}">{{dueDate}}</time></span>
-                <span>{{title}}</span>
-                <span class="right">{{#times importance}}*{{/times}}</span>
+        <div class="note">
+            <div >
+                <div ><time datetime="{{dueDate}}">{{dueDate}}</time></div>
+                <div>{{title}}</div>
+                <div class="right">{{#times importance}}*{{/times}}</div>
             </div>
-            <div class="meta">
-                <input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
-                <textarea name="taDescription" disabled>{{description}}</textarea>
-                <a class="button" href="/notes/{{_id}}">Edit</a>
+            <div >
+                <div><input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
+                </div>
+                <div><textarea name="taDescription" disabled>{{description}}</textarea></div>
+               <div> <a class="button" href="/notes/{{_id}}">Edit</a></div>
             </div>
         </div>
     {{/each}}

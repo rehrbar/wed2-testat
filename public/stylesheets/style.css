@@ -25,23 +25,25 @@
     margin-left: auto;
 }
 .notes{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    margin: 20px 0;
+    display: block;
 }
 .note{
-    flex-direction: row;
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.note div{
+    display: flex;
     flex: 1;
 }
-.meta{
-    flex-direction: row;
-    flex-grow: 1;
+.flex-column{
+    flex-direction: column;
 }
-.meta>span{
+
+.flex-row{
     flex-direction: row;
-    flex: 1;
 }
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
