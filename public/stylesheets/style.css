@@ -3,21 +3,46 @@
 .container {
     width: 100%;
     margin: 0 auto;
-    display: flex; /* or inline-flex */
-    flex-flow: column nowrap;
-    /* Then we define how is distributed the remaining space */
-    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;/*TODO: replace with media specific values */
 }
-
 
 .filters{
-    flex-flow: column nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.filters>.button{
+    margin: 5px;
+    flex: 1;
 }
 
+.navigation{
+    display: flex;
+    flex-direction: row;
+}
 .right{
     margin-left: auto;
 }
-
+.notes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.note{
+    flex-direction: row;
+    flex: 1;
+}
+.meta{
+    flex-direction: row;
+    flex-grow: 1;
+}
+.meta>span{
+    flex-direction: row;
+    flex: 1;
+}
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
@@ -137,14 +162,12 @@ label > .label-body {
     margin-left: .5rem;
     font-weight: normal; }
 
-
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Self Clearing Goodness */
 .row{
-    flex-direction: row;
-    align-items: center
+    align-items: center;
 }
 .container:after,
 .row:after,
