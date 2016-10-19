@@ -31,7 +31,7 @@
     {{#each notes}}
         <div class="note">
             <div >
-                <div ><time datetime="{{dueDate}}">{{dueDate}}</time></div>
+                <div ><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
                 <div>{{title}}</div>
                 <div class="right">{{#times importance}}*{{/times}}</div>
             </div>
