@@ -1,0 +1,28 @@
+body {
+    background: #222222;
+    color: #bbbbbb;
+}
+
+a {
+    color: greenyellow;
+}
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    color: greenyellow;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus{
+    background-color: white;
+}

@@ -5,6 +5,8 @@ module.exports.showIndex = function(req, res) {
   var showFinished = req.query.show_finished === "true";
   var orderBy = req.query.sort;
 
+  setTheme(req, req.query.theme);
+
   store.all(showFinished, (notes)=>{
 
     notes.sort((a, b) =>{
@@ -25,7 +27,7 @@ module.exports.showIndex = function(req, res) {
           return 0;
       }
     });
-    res.render('index', { title: 'Express', notes: notes, orderBy: orderBy, finished: showFinished });
+    res.render('index', { title: 'Notes overview', theme: getTheme(req), notes: notes, orderBy: orderBy, finished: showFinished });
   });
 };
 
@@ -42,14 +44,14 @@ module.exports.add = function(req, res) {
 
 module.exports.addForm = function(req, res) {
   // TODO implement addForm method
-  res.render("edit", {title:"New Note", action:"/notes"});
+  res.render("edit", {title:"New Note", theme: getTheme(req), action:"/notes"});
 };
 
 module.exports.editForm = function(req, res) {
   // TODO implement editForm method
   store.get(req.params.id, (err, note) => {
     "use strict";
-    res.render("edit", { title: "Edit Note", action:"/notes/"+req.params.id, note: note});
+    res.render("edit", { title: "Edit Note", theme: getTheme(req), action:"/notes/"+req.params.id, note: note});
   });
 };
 
@@ -69,4 +71,22 @@ function compareValues(a, b, propertyName){
   "use strict";
 
   return a[propertyName] === b[propertyName] ? 0 : ((a[propertyName] < b[propertyName])? -1:1);
+}
+
+function getTheme(request){
+  "use strict";
+  // Use variable to store new set themes.
+  return request.session.theme;
+}
+
+function setTheme(request, theme){
+  "use strict";
+  // TODO add some useful options for path and expires
+  if (theme){
+    if(theme !== "default") {
+      request.session.theme = theme;
+    } else {
+      request.session.theme = "";
+    }
+  }
 }

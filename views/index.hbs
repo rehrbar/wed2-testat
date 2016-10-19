@@ -3,24 +3,28 @@
 <p><a href="/notes/new" title="Create new Note">Create new Note</a></p>
 <div class="row">
     <a class="button" href="/notes/new" >Create new note</a>
-    <a class="button">Switch style</a>
+{{#if-eq theme "dark"}}
+    <a class="button" href="{{filter-url ../orderby ../finished}}&theme=default">Switch style</a>
+{{else}}
+    <a class="button" href="{{filter-url ../orderby ../finished}}&theme=dark">Switch style</a>
+{{/if-eq}}
 </div>
 
 <div class="row">
     {{#if-eq orderBy "dueDate"}}
         <a class="button" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
     {{else}}
-        <a class="button" href="{{{filter-url 'dueDate' ../finished}}}">By due date</a>
+        <a class="button" href="{{filter-url 'dueDate' ../finished}}">By due date</a>
     {{/if-eq}}
     {{#if-eq orderBy "createDate"}}
-        <a class="button" href="{{{filter-url 'createDate_desc' ../finished}}}">By create date</a>
+        <a class="button" href="{{filter-url 'createDate_desc' ../finished}}">By create date</a>
     {{else}}
-        <a class="button" href="{{{filter-url 'createDate' ../finished}}}">By create date</a>
+        <a class="button" href="{{filter-url 'createDate' ../finished}}">By create date</a>
     {{/if-eq}}
     {{#if-eq orderBy "importance"}}
-        <a class="button" href="{{{filter-url 'importance_desc' ../finished}}}">By importance</a>
+        <a class="button" href="{{filter-url 'importance_desc' ../finished}}">By importance</a>
     {{else}}
-        <a class="button" href="{{{filter-url 'importance' ../finished}}}">By importance</a>
+        <a class="button" href="{{filter-url 'importance' ../finished}}">By importance</a>
     {{/if-eq}}
 
     {{#if finished}}
