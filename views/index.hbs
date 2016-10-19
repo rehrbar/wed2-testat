@@ -1,10 +1,9 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p><a href="/notes/new" title="Create new Note">Create new Note</a></p>
-<div class="row">
+<section class="navigation" >
     <a class="button" href="/notes/new" >Create new note</a>
-    <a class="button">Switch style</a>
-</div>
+    <a class="button right" >Switch style</a>
+</section>
+<section class="filters">
 
 <div class="row">
     {{#if-eq orderBy "dueDate"}}
@@ -12,6 +11,7 @@
     {{else}}
         <a class="button" href="{{{filter-url 'dueDate' ../finished}}}">By due date</a>
     {{/if-eq}}
+
     {{#if-eq orderBy "createDate"}}
         <a class="button" href="{{{filter-url 'createDate_desc' ../finished}}}">By create date</a>
     {{else}}
@@ -30,16 +30,21 @@
     {{/if}}
 </div>
 
-<div>
+<section class="notes">
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
     {{#each notes}}
-        <dl>
-            <dt>Title</dt> <dd>{{title}}</dd>
-            <dt>Desc</dt> <dd>{{description}}</dd>
-            <dt>Importance</dt> <dd>{{importance}}</dd>
-            <dt>CreateDate</dt> <dd>{{createDate}}</dd>
-            <dt>DueDate</dt> <dd>{{dueDate}}</dd>
-            <dt>Finished</dt> <dd>{{finished}}</dd>
-        </dl>
+        <div class="note">
+            <div >
+                <div ><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
+                <div>{{title}}</div>
+                <div class="right">{{#times importance}}*{{/times}}</div>
+            </div>
+            <div >
+                <div><input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
+                </div>
+                <div><textarea name="taDescription" disabled>{{description}}</textarea></div>
+               <div> <a class="button" href="/notes/{{_id}}">Edit</a></div>
+            </div>
+        </div>
     {{/each}}
-</div>
+</section>
