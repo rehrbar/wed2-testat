@@ -29,7 +29,7 @@
         <a class="button" href="{{filter-url orderBy 'true'}}">Show finished</a>
     {{/if}}
 </div>
-
+</section>
 <section class="notes">
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
     {{#each notes}}
@@ -43,7 +43,7 @@
                 <div><input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
                 </div>
                 <div><textarea name="taDescription" disabled>{{description}}</textarea></div>
-               <div> <a class="button" href="/notes/{{_id}}">Edit</a></div>
+                <div> <a class="button" href="/notes/{{_id}}">Edit</a></div>
             </div>
         </div>
     {{/each}}
