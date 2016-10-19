@@ -7,23 +7,28 @@
     max-width: 1200px;/*TODO: replace with media specific values */
 }
 
-.filters{
+.navigation, .filters {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
+    justify-content: flex-start;
 }
-.filters>.button{
+
+.navigation .button, .filters .button{
     margin: 5px;
     flex: 1;
 }
 
-.navigation{
-    display: flex;
-    flex-direction: row;
+.button.last {
+    /* TODO align button right */
 }
-.right{
-    margin-left: auto;
+
+@media all and (max-width: 800px) {
+    .navigation, .filters {
+        flex-direction: column;
+    }
 }
+
 .notes{
     margin: 20px 0;
     display: block;
@@ -40,13 +45,6 @@
 .note div{
     display: flex;
     flex: 1;
-}
-.flex-column{
-    flex-direction: column;
-}
-
-.flex-row{
-    flex-direction: row;
 }
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -169,32 +167,3 @@ label > .label-body {
     display: inline-block;
     margin-left: .5rem;
     font-weight: normal; }
-
-/* Clearing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-/* Self Clearing Goodness */
-.row{
-    align-items: center;
-}
-.container:after,
-.row:after,
-.u-cf {
-    content: "";
-    display: table;
-    clear: both;
-    width: 100%;}
-
-/* Utilities
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.u-full-width {
-    width: 100%;
-    box-sizing: border-box; }
-.u-max-full-width {
-    max-width: 100%;
-    box-sizing: border-box; }
-.u-pull-right {
-    float: right; }
-.u-pull-left {
-    float: left; }
-

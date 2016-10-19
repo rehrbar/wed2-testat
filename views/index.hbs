@@ -7,33 +7,30 @@
 {{else}}
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=dark">Switch style</a>
 {{/if-eq}}
-</div>
 </section>
 <section class="filters">
-    <div class="row">
-        {{#if-eq orderBy "dueDate"}}
-            <a class="button" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
-        {{else}}
-            <a class="button" href="{{filter-url 'dueDate' ../finished}}">By due date</a>
-        {{/if-eq}}
+    {{#if-eq orderBy "dueDate"}}
+        <a class="button" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
+    {{else}}
+        <a class="button" href="{{filter-url 'dueDate' ../finished}}">By due date</a>
+    {{/if-eq}}
 
-        {{#if-eq orderBy "createDate"}}
-            <a class="button" href="{{filter-url 'createDate_desc' ../finished}}">By create date</a>
-        {{else}}
-            <a class="button" href="{{filter-url 'createDate' ../finished}}">By create date</a>
-        {{/if-eq}}
-        {{#if-eq orderBy "importance"}}
-            <a class="button" href="{{filter-url 'importance_desc' ../finished}}">By importance</a>
-        {{else}}
-            <a class="button" href="{{filter-url 'importance' ../finished}}">By importance</a>
-        {{/if-eq}}
+    {{#if-eq orderBy "createDate"}}
+        <a class="button" href="{{filter-url 'createDate_desc' ../finished}}">By create date</a>
+    {{else}}
+        <a class="button" href="{{filter-url 'createDate' ../finished}}">By create date</a>
+    {{/if-eq}}
+    {{#if-eq orderBy "importance"}}
+        <a class="button" href="{{filter-url 'importance_desc' ../finished}}">By importance</a>
+    {{else}}
+        <a class="button" href="{{filter-url 'importance' ../finished}}">By importance</a>
+    {{/if-eq}}
 
-        {{#if finished}}
-            <a class="button" href="{{filter-url orderBy 'false'}}">Hide finished</a>
-        {{else}}
-            <a class="button" href="{{filter-url orderBy 'true'}}">Show finished</a>
-        {{/if}}
-    </div>
+    {{#if finished}}
+        <a class="button last" href="{{filter-url orderBy 'false'}}">Hide finished</a>
+    {{else}}
+        <a class="button last" href="{{filter-url orderBy 'true'}}">Show finished</a>
+    {{/if}}
 </section>
 <section class="notes">
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
