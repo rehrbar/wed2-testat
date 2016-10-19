@@ -1,16 +1,16 @@
 <h1>{{title}}</h1>
-<section class="row">
+<section class="row navigation" >
     <a class="button" href="/notes/new" >Create new note</a>
-    <a class="button">Switch style</a>
+    <a class="button right" >Switch style</a>
 </section>
-
-<section class="row">
+<section class="row filters">
     {{query}}
     {{#if-eq orderBy "dueDate"}}
         <a class="button" href="?sort=dueDate_desc">By due date</a>
     {{else}}
         <a class="button" href="?sort=dueDate">By due date</a>
     {{/if-eq}}
+
     {{#if-eq orderBy "createDate"}}
         <a class="button" href="?sort=createDate_desc">By create date</a>
     {{else}}
@@ -29,19 +29,17 @@
 <section>
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
     {{#each notes}}
-        <div class="row">
-            <div class="row">
+        <div class="row u-full-width">
+            <div class="row " >
                 <span><time datetime="{{dueDate}}">{{dueDate}}</time></span>
                 <span>{{title}}</span>
                 <span>{{#times importance}}*{{/times}}</span>
             </div>
             <div class="row">
-                <input name="cbxFinished" type="checkbox" {{#if finished}}checked="checked"{{/if}}">
-                <label for="cbxFinished" >Finished</label>
+                <input name="cbxFinished" type="checkbox" {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
                 <textarea name="taDescription">{{description}}</textarea>
                 <a class="button" href="/notes/{{_id}}">Edit</a>
             </div>
-
         </div>
     {{/each}}
 </section>

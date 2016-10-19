@@ -1,3 +1,23 @@
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex; /* or inline-flex */
+    flex-flow: column nowrap;
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+}
+
+
+.filters{
+    flex-flow: column nowrap;
+}
+
+.right{
+    margin-left: auto;
+}
+
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
@@ -57,9 +77,6 @@ input[type="button"].button-primary:focus {
     background-color: #1EAEDB;
     border-color: #1EAEDB; }
 
-
-
-
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input[type="email"],
@@ -107,7 +124,6 @@ select:focus {
     outline: 0; }
 label,
 legend {
-    display: block;
     margin-bottom: .5rem;
     font-weight: 600; }
 fieldset {
@@ -126,12 +142,17 @@ label > .label-body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Self Clearing Goodness */
+.row{
+    flex-direction: row;
+    align-items: center
+}
 .container:after,
 .row:after,
 .u-cf {
     content: "";
     display: table;
-    clear: both; }
+    clear: both;
+    width: 100%;}
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -145,3 +166,4 @@ label > .label-body {
     float: right; }
 .u-pull-left {
     float: left; }
+
