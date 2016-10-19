@@ -8,6 +8,8 @@ var session = require('express-session');
 var qs = require("qs");
 
 var hbs = require('hbs');
+
+
 hbs.registerHelper("if-eq", (a, b, options) => {
   "use strict";
   if(a == b){
@@ -20,6 +22,15 @@ hbs.registerHelper("filter-url", (sort, showFinished) => {
   "use strict";
   return "?" + qs.stringify({sort: sort, show_finished: showFinished});
 })
+hbs.registerHelper('times', function(n, block) {
+  var accum = '';
+  for(var i = 0; i < n; ++i)
+    accum += block.fn(i);
+  return accum;
+});
+
+var momentHandler = require("handlebars.moment");
+momentHandler.registerHelpers(hbs);
 
 var routes = require('./routes/notes');
 

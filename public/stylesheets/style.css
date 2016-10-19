@@ -1,3 +1,53 @@
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    max-width: 1200px;/*TODO: replace with media specific values */
+}
+
+.filters{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.filters>.button{
+    margin: 5px;
+    flex: 1;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+}
+.right{
+    margin-left: auto;
+}
+.notes{
+    margin: 20px 0;
+    display: block;
+}
+.note{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+    border-color: rgba(136, 136, 136, 0.27);
+    border-bottom: 1px solid;
+}
+.note div{
+    display: flex;
+    flex: 1;
+}
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-row{
+    flex-direction: row;
+}
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
@@ -57,9 +107,6 @@ input[type="button"].button-primary:focus {
     background-color: #1EAEDB;
     border-color: #1EAEDB; }
 
-
-
-
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input[type="email"],
@@ -105,9 +152,11 @@ textarea:focus,
 select:focus {
     border: 1px solid #33C3F0;
     outline: 0; }
+textarea:disabled{
+    background-color: rgba(232, 232, 232, 0.27);
+}
 label,
 legend {
-    display: block;
     margin-bottom: .5rem;
     font-weight: 600; }
 fieldset {
@@ -121,17 +170,20 @@ label > .label-body {
     margin-left: .5rem;
     font-weight: normal; }
 
-
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Self Clearing Goodness */
+.row{
+    align-items: center;
+}
 .container:after,
 .row:after,
 .u-cf {
     content: "";
     display: table;
-    clear: both; }
+    clear: both;
+    width: 100%;}
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -145,3 +197,4 @@ label > .label-body {
     float: right; }
 .u-pull-left {
     float: left; }
+

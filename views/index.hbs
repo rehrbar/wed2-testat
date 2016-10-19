@@ -1,49 +1,55 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p><a href="/notes/new" title="Create new Note">Create new Note</a></p>
-<div class="row">
+<section class="navigation" >
     <a class="button" href="/notes/new" >Create new note</a>
+
 {{#if-eq theme "dark"}}
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=default">Switch style</a>
 {{else}}
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=dark">Switch style</a>
 {{/if-eq}}
 </div>
+</section>
+<section class="filters">
+    <div class="row">
+        {{#if-eq orderBy "dueDate"}}
+            <a class="button" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
+        {{else}}
+            <a class="button" href="{{filter-url 'dueDate' ../finished}}">By due date</a>
+        {{/if-eq}}
 
-<div class="row">
-    {{#if-eq orderBy "dueDate"}}
-        <a class="button" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
-    {{else}}
-        <a class="button" href="{{filter-url 'dueDate' ../finished}}">By due date</a>
-    {{/if-eq}}
-    {{#if-eq orderBy "createDate"}}
-        <a class="button" href="{{filter-url 'createDate_desc' ../finished}}">By create date</a>
-    {{else}}
-        <a class="button" href="{{filter-url 'createDate' ../finished}}">By create date</a>
-    {{/if-eq}}
-    {{#if-eq orderBy "importance"}}
-        <a class="button" href="{{filter-url 'importance_desc' ../finished}}">By importance</a>
-    {{else}}
-        <a class="button" href="{{filter-url 'importance' ../finished}}">By importance</a>
-    {{/if-eq}}
+        {{#if-eq orderBy "createDate"}}
+            <a class="button" href="{{filter-url 'createDate_desc' ../finished}}">By create date</a>
+        {{else}}
+            <a class="button" href="{{filter-url 'createDate' ../finished}}">By create date</a>
+        {{/if-eq}}
+        {{#if-eq orderBy "importance"}}
+            <a class="button" href="{{filter-url 'importance_desc' ../finished}}">By importance</a>
+        {{else}}
+            <a class="button" href="{{filter-url 'importance' ../finished}}">By importance</a>
+        {{/if-eq}}
 
-    {{#if finished}}
-        <a class="button" href="{{filter-url orderBy 'false'}}">Hide finished</a>
-    {{else}}
-        <a class="button" href="{{filter-url orderBy 'true'}}">Show finished</a>
-    {{/if}}
-</div>
-
-<div>
+        {{#if finished}}
+            <a class="button" href="{{filter-url orderBy 'false'}}">Hide finished</a>
+        {{else}}
+            <a class="button" href="{{filter-url orderBy 'true'}}">Show finished</a>
+        {{/if}}
+    </div>
+</section>
+<section class="notes">
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
     {{#each notes}}
-        <dl>
-            <dt>Title</dt> <dd>{{title}}</dd>
-            <dt>Desc</dt> <dd>{{description}}</dd>
-            <dt>Importance</dt> <dd>{{importance}}</dd>
-            <dt>CreateDate</dt> <dd>{{createDate}}</dd>
-            <dt>DueDate</dt> <dd>{{dueDate}}</dd>
-            <dt>Finished</dt> <dd>{{finished}}</dd>
-        </dl>
+        <div class="note">
+            <div >
+                <div ><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
+                <div>{{title}}</div>
+                <div class="right">{{#times importance}}*{{/times}}</div>
+            </div>
+            <div >
+                <div><input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
+                </div>
+                <div><textarea name="taDescription" disabled>{{description}}</textarea></div>
+                <div> <a class="button" href="/notes/{{_id}}">Edit</a></div>
+            </div>
+        </div>
     {{/each}}
-</div>
+</section>
