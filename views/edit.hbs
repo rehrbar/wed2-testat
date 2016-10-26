@@ -15,7 +15,7 @@
     </div>
     <div>
         <label for="inputDueDate">Due Date</label>
-        <input type="date" id="inputDueDate" name="dueDate" value="{{note.dueDate}}"/>
+        <input type="date" id="inputDueDate" name="dueDate" placeholder="Format: YYYY-MM-DD" value="{{moment note.dueDate format='YYYY-MM-DD'}}"/>
     </div>
     <div>
         <label>

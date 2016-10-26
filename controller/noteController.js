@@ -1,4 +1,5 @@
 var store = require("../services/noteStore.js");
+var moment = require("moment");
 
 module.exports.showIndex = function(req, res) {
   "use strict";
@@ -36,7 +37,7 @@ module.exports.add = function(req, res) {
     req.body.title,
     req.body.description,
     req.body.importance,
-    req.body.dueDate,
+    moment(req.body.dueDate),
     req.body.finished,
     () => res.redirect("/")
   );
@@ -61,7 +62,7 @@ module.exports.edit = function(req, res) {
     req.body.title,
     req.body.description,
     req.body.importance,
-    req.body.dueDate,
+    moment(req.body.dueDate),
     req.body.finished,
     () => res.redirect("/")
   );
