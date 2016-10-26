@@ -19,16 +19,20 @@
     flex: 1;
 }
 
-.button.last {
-    /* TODO align button right */
-}
-
 @media all and (max-width: 800px) {
     .navigation, .filters {
         flex-direction: column;
     }
 }
 
+@media all and (min-width: 800px){
+    .navigation .button{
+        max-width: calc(25% - 10px); /* TODO: maybe calculate these values depending on the buttons in .filters*/
+    }
+    .navigation .button:nth-of-type(2) {
+        margin-left: auto;
+    }
+}
 .notes{
     margin: 20px 0;
     display: block;
