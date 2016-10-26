@@ -1,7 +1,7 @@
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
-    width: 100%;
+    padding: 5px;
     margin: 0 auto;
     flex-wrap: wrap;
     max-width: 1200px;/*TODO: replace with media specific values */
