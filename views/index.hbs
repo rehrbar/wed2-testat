@@ -39,7 +39,7 @@
             <div >
                 <div ><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
                 <div>{{title}}</div>
-                <div class="right">{{#times importance}}*{{/times}}</div>
+                <div class="right">{{#times importance}}&#9733;{{/times}}</div>
             </div>
             <div >
                 <div><input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>

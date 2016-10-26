@@ -18,17 +18,43 @@
     margin: 5px;
     flex: 1;
 }
-
-.button.last {
-    /* TODO align button right */
+.filters .button:last-of-type,
+.navigation .button:last-of-type{
+    margin-left: auto;
 }
 
+
 @media all and (max-width: 800px) {
-    .navigation, .filters {
+    .filters {
         flex-direction: column;
+    }
+    .filters .button:last-of-type{
+        margin: 5px;
+    }
+    .navigation .button{
+        max-width: 200px;
     }
 }
 
+@media all and (max-width: 600px) {
+    .navigation {
+        flex-direction: column;
+    }
+    .navigation .button{
+        max-width: none;
+    }
+    .navigation .button:last-of-type{
+        margin: 5px;
+    }
+}
+
+@media all and (min-width: 800px){
+    .navigation .button, .filters .button{
+        max-width: 200px;
+        /*max-width: calc(25% - 10px);  TODO: maybe calculate these values depending on the buttons in .filters*/
+    }
+
+}
 .notes{
     margin: 20px 0;
     display: block;
@@ -46,6 +72,42 @@
     display: flex;
     flex: 1;
 }
+.note div div:nth-child(2){
+    flex: 5;
+}
+.note div div:nth-child(3) a.button{
+    margin: 0 10px;
+    width: 100%;
+    height: 100%;
+}
+.note textarea{
+    width: 100%;
+}
+
+.flex-form {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flex-form div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-form > div:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.flex-form > div > label {
+    flex: 1 0 120px;
+    max-width: 220px;
+}
+
+.flex-form > div > label + *{
+    flex: 1 0 600px;
+}
+
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
