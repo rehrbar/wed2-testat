@@ -53,6 +53,17 @@
     display: flex;
     flex: 1;
 }
+.note div div:nth-child(2){
+    flex: 5;
+}
+.note div div:nth-child(3) a.button{
+    margin: 0 10px;
+    width: 100%;
+    height: 100%;
+}
+.note textarea{
+    width: 100%;
+}
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
