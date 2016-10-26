@@ -18,11 +18,33 @@
     margin: 5px;
     flex: 1;
 }
+.filters .button:last-of-type,
+.navigation .button:last-of-type{
+    margin-left: auto;
+}
 
 
 @media all and (max-width: 800px) {
-    .navigation, .filters {
+    .filters {
         flex-direction: column;
+    }
+    .filters .button:last-of-type{
+        margin: 5px;
+    }
+    .navigation .button{
+        max-width: 200px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .navigation {
+        flex-direction: column;
+    }
+    .navigation .button{
+        max-width: none;
+    }
+    .navigation .button:last-of-type{
+        margin: 5px;
     }
 }
 
@@ -31,10 +53,7 @@
         max-width: 200px;
         /*max-width: calc(25% - 10px);  TODO: maybe calculate these values depending on the buttons in .filters*/
     }
-    .filters .button:last-of-type,
-    .navigation .button:last-of-type{
-        margin-left: auto;
-    }
+
 }
 .notes{
     margin: 20px 0;
