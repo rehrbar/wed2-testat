@@ -27,7 +27,7 @@ function publicEdit(id, title, description, importance, dueDate, finished, callb
         description: description,
         importance: importance,
         dueDate: new Date(dueDate),
-        finished: finished
+        finished: !!finished
       }
     },
     () => {
@@ -44,7 +44,7 @@ function publicGet(id, callback) {
 
 function publicGetAll(showFinished, callback) {
   "use strict";
-  var filter = {finished: false};
+  var filter = {finished: { $ne: true}};
   if(showFinished) filter = {};
   db.find(filter, (err, doc) => {
     callback && callback(doc);
