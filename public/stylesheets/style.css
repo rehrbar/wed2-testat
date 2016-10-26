@@ -19,6 +19,7 @@
     flex: 1;
 }
 
+
 @media all and (max-width: 800px) {
     .navigation, .filters {
         flex-direction: column;
@@ -26,10 +27,12 @@
 }
 
 @media all and (min-width: 800px){
-    .navigation .button{
-        max-width: calc(25% - 10px); /* TODO: maybe calculate these values depending on the buttons in .filters*/
+    .navigation .button, .filters .button{
+        max-width: 200px;
+        /*max-width: calc(25% - 10px);  TODO: maybe calculate these values depending on the buttons in .filters*/
     }
-    .navigation .button:nth-of-type(2) {
+    .filters .button:last-of-type,
+    .navigation .button:last-of-type{
         margin-left: auto;
     }
 }
