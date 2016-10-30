@@ -36,17 +36,15 @@
     <!-- TODO replace with real interface; this is just for testing sorting/filters -->
     {{#each notes}}
         <div class="note">
-            <div >
-                <div ><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
-                <div>{{title}}</div>
-                <div class="right">{{#times importance}}&#9733;{{/times}}</div>
+            <div class="duedate"><span><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></span></div>
+            <div class="title"><span>{{title}}</span></div>
+            <div class="importance">{{#times importance}}&#9733;{{/times}}</div>
+            <div class="finished">
+                <input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}">
+                <label for="cbxFinished" >Finished</label>
             </div>
-            <div >
-                <div><input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}"><label for="cbxFinished" >Finished</label>
-                </div>
-                <div><textarea name="taDescription" disabled>{{description}}</textarea></div>
-                <div> <a class="button" href="/notes/{{_id}}">Edit</a></div>
-            </div>
+            <div class="description"><textarea name="taDescription" disabled>{{description}}</textarea></div>
+            <div class="edit"> <a class="button" href="/notes/{{_id}}">Edit</a></div>
         </div>
     {{/each}}
 </section>
