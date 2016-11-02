@@ -1,4 +1,3 @@
-
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button {
@@ -99,42 +98,46 @@ input:invalid {
 .container {
     padding: 5px;
     margin: 0 auto;
-    flex-wrap: wrap;
     max-width: 75rem;
 }
 
-.navigation, .filters {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.navigation .button, .filters .button {
+.navigation .button, .filters .button, .note .button, .note .imaginary-button {
     margin: 5px;
-    flex: 1;
+    width: 12rem;
 }
 
-.filters .button:last-of-type,
-.navigation .button:last-of-type {
-    margin-left: auto;
+.navigation, .filters, .note-heading, .note-body {
+    display: flex;
+    flex-flow: row;
+}
+
+.spacer, .note .description {
+    flex: 1;
 }
 
 .notes {
     margin: 20px 0;
-    display: block;
+    /*display: block;*/
 }
 
 .note {
-    display: flex;
-    width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
     padding-bottom: 3px;
     border-bottom: 1px solid rgba(136, 136, 136, 0.27);
 }
 
 .note:last-child {
     border-bottom: none;
+}
+
+.note .duedate, .note label {
+    width: 12rem;
+}
+
+.note .edit {
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .no-elements {
@@ -151,135 +154,24 @@ input:invalid {
     vertical-align: middle;
 }
 
-.note-content {
-    flex: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-}
-
-.note div div {
-    display: flex;
-}
-
-.linebreak {
-    width: 100%;
-}
-
-.duedate, .finished, .importance {
-    width: 90px;
-}
-
-.importance span {
-    text-align: right;
-    width: 100%;
-}
-
-.title, .description {
-    flex: 1;
-    /* flex-grow: 1; */
-}
-
-.note textarea {
-    width: 100%;
-}
-
-.edit {
-    margin-top: 1em;
-    flex: 0 1 100%;
-    max-width: 12.5rem;
-}
-
-.edit > .button {
-    width: 100%;
-    height: 100%;
-    margin: 0 5px;
-}
-
-.flex-form {
-    list-style-type: none;
-    padding: 0;
-}
-
-.flex-form div {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.flex-form > div:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.flex-form > div > label {
-    flex: 1 0 120px;
-    max-width: 220px;
-}
-
-.flex-form > div > label + * {
-    flex: 1 0 600px;
-}
-
-@media all and (min-width: 800px) {
-    .navigation .button, .filters .button {
-        max-width: 12.5rem;
-        /*max-width: calc(25% - 10px);  TODO: maybe calculate these values depending on the buttons in .filters*/
-    }
-}
-
-@media all and (max-width: 800px) {
-    .filters {
-        flex-direction: column;
+@media all and (max-width: 52rem) {
+    .navigation, .filters {
+        flex-flow: column;
     }
 
-    .filters .button:last-of-type {
-        margin: 5px;
+    .navigation .button, .filters .button, .note .edit {
+        width: auto;
     }
 
-    .navigation .button {
-        max-width: 12.5rem;
-    }
-    .note {
-        flex-direction: column;
+    .note .edit {
+        margin: 5px 0;
     }
 
-    .finished {
-        width: 100%;
-    }
-}
-
-@media all and (max-width: 600px) {
-
-    .navigation {
-        flex-direction: column;
+    .note .note-body {
+        flex-flow: column;
     }
 
-    .navigation .button {
-        max-width: none;
-    }
-
-    .navigation .button:last-of-type {
-        margin: 5px;
-    }
-    .title {
-        flex: 0 0 100%;
-        order: 3;
-    }
-
-    .duedate {
-        order: 1;
-        flex: 1 0;
-    }
-
-    .importance {
-        order: 2;
-    }
-
-    .finished {
-        order: 4;
-    }
-
-    .description {
-        order: 5;
+    .note .imaginary-button {
+        flex: 0;
     }
 }
