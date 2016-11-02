@@ -33,7 +33,7 @@
     {{/if}}
 </section>
 <section class="notes">
-    <!-- TODO replace with real interface; this is just for testing sorting/filters -->
+    {{#if notes.length}}
     {{#each notes}}
         <div class="note">
             <div class="note-content">
@@ -50,4 +50,7 @@
             <div class="edit"> <a class="button" href="/notes/{{_id}}">Edit</a></div>
         </div>
     {{/each}}
+    {{else}}
+        <p class="no-elements">There are no notes to display. Create a new note ;)</p>
+    {{/if}}
 </section>

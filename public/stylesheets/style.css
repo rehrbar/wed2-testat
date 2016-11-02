@@ -66,6 +66,20 @@
     border-bottom: 1px solid;
 }
 
+.no-elements {
+    border: 2px solid #33C3F0;
+    border-radius: 4px;
+    padding: 1em;
+}
+
+.no-elements:before {
+    content: "\261B";
+    font-size: 2em;
+    line-height: 0;
+    margin-right: 0.2em;
+    vertical-align: middle;
+}
+
 .note-content{
     flex: 1;
     flex-direction: row;
