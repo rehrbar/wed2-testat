@@ -73,7 +73,7 @@
 }
 
 .no-elements:before {
-    content: "\261B";
+    content: "\2615";
     font-size: 2em;
     line-height: 0;
     margin-right: 0.2em;
