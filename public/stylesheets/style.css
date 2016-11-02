@@ -40,6 +40,7 @@ select {
     box-shadow: none;
     box-sizing: border-box;
     resize: vertical;
+    width: 100%;
 }
 
 /* Removes awkward default styles on some inputs for iOS */
@@ -130,7 +131,7 @@ input:invalid {
     border-bottom: none;
 }
 
-.note .duedate, .note label {
+.note .duedate, .note label, .form-group label, .form-group .imaginary-label {
     width: 12rem;
 }
 
@@ -154,8 +155,18 @@ input:invalid {
     vertical-align: middle;
 }
 
+.form-group {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 0.5rem;
+}
+
+.form-group .form-control {
+    flex: 1;
+}
+
 @media all and (max-width: 52rem) {
-    .navigation, .filters {
+    .navigation, .filters, .form-group {
         flex-flow: column;
     }
 
@@ -173,5 +184,9 @@ input:invalid {
 
     .note .imaginary-button {
         flex: 0;
+    }
+
+    .form-group .form-control {
+        flex: 0 1 auto;
     }
 }
