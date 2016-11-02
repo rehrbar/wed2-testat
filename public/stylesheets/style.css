@@ -23,7 +23,6 @@
     margin-left: auto;
 }
 
-
 @media all and (max-width: 800px) {
     .filters {
         flex-direction: column;
@@ -223,30 +222,18 @@ input[type="button"].button-primary:focus {
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
+input:not([type='checkbox']),
 textarea,
 select {
     height: 38px;
     padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
     background-color: #fff;
-    border: 1px solid #D1D1D1;
+    border: 2px solid #D1D1D1;
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box; }
 /* Removes awkward default styles on some inputs for iOS */
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
+input,
 textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -255,16 +242,10 @@ textarea {
     min-height: 65px;
     padding-top: 6px;
     padding-bottom: 6px; }
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
+input:focus,
 textarea:focus,
 select:focus {
-    border: 1px solid #33C3F0;
+    border: 2px solid #33C3F0;
     outline: 0; }
 textarea:disabled{
     background-color: rgba(232, 232, 232, 0.27);
@@ -283,3 +264,7 @@ label > .label-body {
     display: inline-block;
     margin-left: .5rem;
     font-weight: normal; }
+
+input:invalid {
+    border-color: red;
+}
