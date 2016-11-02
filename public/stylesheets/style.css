@@ -60,8 +60,6 @@
 }
 .note{
     display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 10px;
     padding-bottom: 3px;
@@ -69,14 +67,31 @@
     border-bottom: 1px solid;
 }
 
+.note-content{
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display:flex;
+}
+
+.note div div{
+    display: flex;
+}
+.linebreak{
+    width: 100%;
+}
 
 .duedate, .finished, .importance{
-    display: flex;
-    flex: 1 0 33%;
+    width: 90px;
+}
+
+.importance span{
+    text-align: right;
+    width: 100%;
 }
 
 .title, .description{
-    flex: 1 1 0;
+    flex: 1;
    /* flex-grow: 1; */
 }
 
@@ -89,7 +104,8 @@
     width: 100%;
 }
 .edit{
-    width:  200px;
+    margin-top:1em ;
+    flex: 0 0 200px;
 }
 .edit > .button{
     width: 100%;
