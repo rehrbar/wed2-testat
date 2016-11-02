@@ -99,13 +99,38 @@
     .note{
         flex-direction: column;
     }
+    .finished{
+        width: 100%;
+    }
 }
+
+@media all and (max-width: 600px){
+    .title{
+        flex: 0 0 100%;
+        order: 3;
+    }
+    .duedate{
+        order: 1;
+        flex: 1 0;
+    }
+    .importance{
+        order: 2;
+    }
+    .finished{
+        order: 4;
+    }
+    .description{
+        order: 5;
+    }
+}
+
 .note textarea{
     width: 100%;
 }
 .edit{
     margin-top:1em ;
-    flex: 0 0 200px;
+    flex: 0 1 100%;
+    max-width: 200px;
 }
 .edit > .button{
     width: 100%;
