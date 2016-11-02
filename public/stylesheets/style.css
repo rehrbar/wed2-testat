@@ -4,7 +4,7 @@
     padding: 5px;
     margin: 0 auto;
     flex-wrap: wrap;
-    max-width: 1200px;/*TODO: replace with media specific values */
+    max-width: 75rem;
 }
 
 .navigation, .filters {
@@ -32,7 +32,7 @@
         margin: 5px;
     }
     .navigation .button{
-        max-width: 200px;
+        max-width: 12.5rem;
     }
 }
 
@@ -50,7 +50,7 @@
 
 @media all and (min-width: 800px){
     .navigation .button, .filters .button{
-        max-width: 200px;
+        max-width: 12.5rem;
         /*max-width: calc(25% - 10px);  TODO: maybe calculate these values depending on the buttons in .filters*/
     }
 }
@@ -128,9 +128,9 @@
     width: 100%;
 }
 .edit{
-    margin-top:1em ;
+    margin-top: 1em ;
     flex: 0 1 100%;
-    max-width: 200px;
+    max-width: 12.5rem;
 }
 .edit > .button{
     width: 100%;
