@@ -1,28 +1,24 @@
 body {
-    background: #222222;
+    background-color: #222222;
     color: #bbbbbb;
 }
 
 a {
     color: greenyellow;
 }
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+
+input:not([type='checkbox']),
+textarea,
+select {
+    background-color: rgba(232, 232, 232, 0.27);
+    color: white;
+}
+
+.button {
     color: greenyellow;
 }
 
 .button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus{
+.button:focus {
     background-color: white;
 }
