@@ -44,7 +44,7 @@ select {
 }
 
 /* Removes awkward default styles on some inputs for iOS */
-input,
+input:not([type='checkbox']),
 textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
