@@ -166,11 +166,11 @@ input:invalid {
 }
 
 @media all and (max-width: 52rem) {
-    .navigation, .filters, .form-group {
+    .filters, .form-group {
         flex-flow: column;
     }
 
-    .navigation .button, .filters .button, .note .edit {
+    .filters .button, .note .edit {
         width: auto;
     }
 
@@ -189,4 +189,15 @@ input:invalid {
     .form-group .form-control {
         flex: 0 1 auto;
     }
+}
+
+@media all and (max-width: 25rem) {
+    .navigation {
+        flex-flow: column;
+    }
+
+    .navigation .button {
+        width: auto;
+    }
+
 }
