@@ -27,6 +27,11 @@ button:focus {
     outline: 0;
 }
 
+.button.active {
+    background-color: #33C3F0;
+    color: white;
+}
+
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input:not([type='checkbox']),
@@ -163,6 +168,14 @@ input:invalid {
 
 .form-group .form-control {
     flex: 1;
+}
+
+.ascending:after {
+    content: "\25BC";
+}
+
+    .descending:after {
+        content: "\25B2";
 }
 
 @media all and (max-width: 52rem) {
