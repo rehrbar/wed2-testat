@@ -1,69 +1,144 @@
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button {
+    display: inline-block;
+    height: 2.375rem;
+    padding: 0 30px;
+    color: #555;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 2.375rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.button:hover,
+button:focus {
+    color: #333;
+    border-color: #888;
+    outline: 0;
+}
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input:not([type='checkbox']),
+textarea,
+select {
+    height: 2.375rem;
+    padding: 0px 0.625rem;
+    background-color: #fff;
+    border: 2px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    resize: vertical;
+    width: 100%;
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+input:not([type='checkbox']),
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    min-height: 4rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #33C3F0;
+    outline: 0;
+}
+
+textarea:disabled {
+    background-color: rgba(232, 232, 232, 0.27);
+}
+
+label,
+legend {
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+
+fieldset {
+    padding: 0;
+    border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline;
+}
+
+label > .label-body {
+    display: inline-block;
+    margin-left: .5rem;
+    font-weight: normal;
+}
+
+input:invalid {
+    border-color: red;
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
     padding: 5px;
     margin: 0 auto;
-    flex-wrap: wrap;
     max-width: 75rem;
 }
 
-.navigation, .filters {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: flex-start;
+.navigation .button, .filters .button, .note .button, .note .imaginary-button {
+    margin: 5px;
+    width: 12rem;
 }
 
-.navigation .button, .filters .button{
-    margin: 5px;
+.navigation, .filters, .note-heading, .note-body {
+    display: flex;
+    flex-flow: row;
+}
+
+.spacer, .note .description {
     flex: 1;
 }
-.filters .button:last-of-type,
-.navigation .button:last-of-type{
-    margin-left: auto;
-}
 
-@media all and (max-width: 800px) {
-    .filters {
-        flex-direction: column;
-    }
-    .filters .button:last-of-type{
-        margin: 5px;
-    }
-    .navigation .button{
-        max-width: 12.5rem;
-    }
-}
-
-@media all and (max-width: 600px) {
-    .navigation {
-        flex-direction: column;
-    }
-    .navigation .button{
-        max-width: none;
-    }
-    .navigation .button:last-of-type{
-        margin: 5px;
-    }
-}
-
-@media all and (min-width: 800px){
-    .navigation .button, .filters .button{
-        max-width: 12.5rem;
-        /*max-width: calc(25% - 10px);  TODO: maybe calculate these values depending on the buttons in .filters*/
-    }
-}
-.notes{
+.notes {
     margin: 20px 0;
-    display: block;
+    /*display: block;*/
 }
-.note{
-    display:flex;
-    width: 100%;
-    margin-bottom: 10px;
+
+.note {
+    margin-bottom: 2rem;
     padding-bottom: 3px;
-    border-color: rgba(136, 136, 136, 0.27);
-    border-bottom: 1px solid;
+    border-bottom: 1px solid rgba(136, 136, 136, 0.27);
+}
+
+.note:last-child {
+    border-bottom: none;
+}
+
+.note .duedate, .note label, .form-group label, .form-group .imaginary-label {
+    width: 12rem;
+}
+
+.note .edit {
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .no-elements {
@@ -80,207 +155,49 @@
     vertical-align: middle;
 }
 
-.note-content{
-    flex: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display:flex;
-}
-
-.note div div{
+.form-group {
     display: flex;
-}
-.linebreak{
-    width: 100%;
-}
-
-.duedate, .finished, .importance{
-    width: 90px;
+    flex-flow: row;
+    margin-bottom: 0.5rem;
 }
 
-.importance span{
-    text-align: right;
-    width: 100%;
-}
-
-.title, .description{
+.form-group .form-control {
     flex: 1;
-   /* flex-grow: 1; */
 }
 
-@media all and (max-width: 800px){
-    .note{
-        flex-direction: column;
+@media all and (max-width: 52rem) {
+    .filters, .form-group {
+        flex-flow: column;
     }
-    .finished{
-        width: 100%;
-    }
-}
 
-@media all and (max-width: 600px){
-    .title{
-        flex: 0 0 100%;
-        order: 3;
+    .filters .button, .note .edit {
+        width: auto;
     }
-    .duedate{
-        order: 1;
-        flex: 1 0;
+
+    .note .edit {
+        margin: 5px 0;
     }
-    .importance{
-        order: 2;
+
+    .note .note-body {
+        flex-flow: column;
     }
-    .finished{
-        order: 4;
+
+    .note .imaginary-button {
+        flex: 0;
     }
-    .description{
-        order: 5;
+
+    .form-group .form-control {
+        flex: 0 1 auto;
     }
 }
 
-.note textarea{
-    width: 100%;
-}
-.edit{
-    margin-top: 1em ;
-    flex: 0 1 100%;
-    max-width: 12.5rem;
-}
-.edit > .button{
-    width: 100%;
-    height: 100%;
-    margin: 0 5px;
-}
+@media all and (max-width: 25rem) {
+    .navigation {
+        flex-flow: column;
+    }
 
-.flex-form {
-    list-style-type: none;
-    padding: 0;
-}
+    .navigation .button {
+        width: auto;
+    }
 
-.flex-form div{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.flex-form > div:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.flex-form > div > label {
-    flex: 1 0 120px;
-    max-width: 220px;
-}
-
-.flex-form > div > label + *{
-    flex: 1 0 600px;
-}
-
-/* Buttons
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-    display: inline-block;
-    height: 38px;
-    padding: 0 30px;
-    color: #555;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 38px;
-    letter-spacing: .1rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: transparent;
-    border-radius: 4px;
-    border: 1px solid #bbb;
-    cursor: pointer;
-    box-sizing: border-box; }
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
-    color: #333;
-    border-color: #888;
-    outline: 0; }
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
-    color: #FFF;
-    background-color: #33C3F0;
-    border-color: #33C3F0; }
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
-    color: #FFF;
-    background-color: #1EAEDB;
-    border-color: #1EAEDB; }
-
-/* Forms
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-input:not([type='checkbox']),
-textarea,
-select {
-    height: 38px;
-    padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-    background-color: #fff;
-    border: 2px solid #D1D1D1;
-    border-radius: 4px;
-    box-shadow: none;
-    box-sizing: border-box;
-    resize: vertical;
-}
-/* Removes awkward default styles on some inputs for iOS */
-input,
-textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; }
-textarea {
-    min-height: 65px;
-    padding-top: 6px;
-    padding-bottom: 6px; }
-input:focus,
-textarea:focus,
-select:focus {
-    border: 2px solid #33C3F0;
-    outline: 0; }
-textarea:disabled{
-    background-color: rgba(232, 232, 232, 0.27);
-}
-label,
-legend {
-    margin-bottom: .5rem;
-    font-weight: 600; }
-fieldset {
-    padding: 0;
-    border-width: 0; }
-input[type="checkbox"],
-input[type="radio"] {
-    display: inline; }
-label > .label-body {
-    display: inline-block;
-    margin-left: .5rem;
-    font-weight: normal; }
-
-input:invalid {
-    border-color: red;
 }

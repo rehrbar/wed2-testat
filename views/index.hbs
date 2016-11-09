@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <section class="navigation" >
     <a class="button" href="/notes/new" >Create new note</a>
-
+    <div class="spacer"></div>
 {{#if-eq theme "dark"}}
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=default">Switch style</a>
 {{else}}
@@ -26,6 +26,8 @@
         <a class="button" href="{{filter-url 'importance' ../finished}}">By importance</a>
     {{/if-eq}}
 
+    <div class="spacer"></div>
+
     {{#if finished}}
         <a class="button last" href="{{filter-url orderBy 'false'}}">Hide finished</a>
     {{else}}
@@ -36,18 +38,18 @@
     {{#if notes.length}}
     {{#each notes}}
         <div class="note">
-            <div class="note-content">
-                <div class="duedate"><span><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></span></div>
-                <div class="title"><span>{{title}}</span></div>
-                <div class="importance"><span>{{#times importance}}&#9733;{{/times}}</span></div>
-                <div class="linebreak"></div>
-                <div class="finished">
-                    <input name="cbxFinished" type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}">
-                    <label for="cbxFinished" >Finished</label>
-                </div>
-                <div class="description"><textarea name="taDescription" disabled>{{description}}</textarea></div>
+            <div class="note-heading">
+                <div class="duedate"><time datetime="{{dueDate}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
+                <div>{{title}}</div>
+                <div class="spacer"></div>
+                <div class="importance">{{#times importance}}&#9733;{{/times}}</div>
+                <div class="imaginary-button"></div>
             </div>
-            <div class="edit"> <a class="button" href="/notes/{{_id}}">Edit</a></div>
+            <div class="note-body">
+                <label><input type="checkbox" disabled {{#if finished}}checked="checked"{{/if}}> Finished</label>
+                <textarea class="description" disabled>{{description}}</textarea>
+                <a class="button edit" href="/notes/{{_id}}">Edit</a>
+            </div>
         </div>
     {{/each}}
     {{else}}
