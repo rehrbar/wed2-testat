@@ -44,12 +44,10 @@ module.exports.add = function(req, res) {
 };
 
 module.exports.addForm = function(req, res) {
-  // TODO implement addForm method
   res.render("edit", {title:"New Note", theme: getTheme(req), action:"/notes"});
 };
 
 module.exports.editForm = function(req, res) {
-  // TODO implement editForm method
   store.get(req.params.id, (err, note) => {
     "use strict";
     res.render("edit", { title: "Edit Note", theme: getTheme(req), action:"/notes/"+req.params.id, note: note});
@@ -82,7 +80,6 @@ function getTheme(request){
 
 function setTheme(request, theme){
   "use strict";
-  // TODO add some useful options for path and expires
   if (theme){
     if(theme !== "default") {
       request.session.theme = theme;
