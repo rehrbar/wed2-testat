@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<section class="navigation" >
+<nav >
     <a class="button" href="/notes/new" >Create new note</a>
     <div class="spacer"></div>
 {{#if-eq theme "dark"}}
@@ -7,14 +7,13 @@
 {{else}}
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=dark">Switch style</a>
 {{/if-eq}}
-</section>
-<section class="filters">
+</nav>
+<section about="filters" class="filters" >
     {{#if-eq orderBy "dueDate"}}
         <a class="button descending active" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
     {{else}}
         <a class="button {{#if-eq ../orderBy "dueDate_desc"}}ascending active{{/if-eq}}" href="{{filter-url 'dueDate' ../finished}}">By due date</a>
     {{/if-eq}}
-
     {{#if-eq orderBy "createDate"}}
         <a class="button descending active" href="{{filter-url 'createDate_desc' ../finished}}">By create date</a>
     {{else}}
@@ -25,21 +24,19 @@
     {{else}}
         <a class="button {{#if-eq ../orderBy "importance_desc"}}ascending active{{/if-eq}}" href="{{filter-url 'importance' ../finished}}">By importance</a>
     {{/if-eq}}
-
     <div class="spacer"></div>
-
     {{#if finished}}
         <a class="button last" href="{{filter-url orderBy 'false'}}">Hide finished</a>
     {{else}}
         <a class="button last" href="{{filter-url orderBy 'true'}}">Show finished</a>
     {{/if}}
 </section>
-<section class="notes">
+<main about="notes" class="notes">
     {{#if notes.length}}
     {{#each notes}}
         <div class="note">
             <div class="note-heading">
-        <div class="duedate"><time datetime="{{moment note.dueDate format='YYYY-MM-DDThh:mm:ss'}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
+                <div class="duedate"><time datetime="{{moment note.dueDate format='YYYY-MM-DDThh:mm:ss'}}">{{#moment d "to" dueDate }}{{dueDate}}{{/moment}}</time></div>
                 <div>{{title}}</div>
                 <div class="spacer"></div>
                 <div class="importance">{{#times importance}}&#9733;{{/times}}</div>
@@ -55,4 +52,4 @@
     {{else}}
         <p class="no-elements">There are no notes to display. Create a new note ;)</p>
     {{/if}}
-</section>
+</main>
