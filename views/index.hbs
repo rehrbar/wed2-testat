@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<section class="navigation" >
+<nav >
     <a class="button" href="/notes/new" >Create new note</a>
     <div class="spacer"></div>
 {{#if-eq theme "dark"}}
@@ -7,7 +7,7 @@
 {{else}}
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=dark">Switch style</a>
 {{/if-eq}}
-</section>
+</nav>
 <section class="filters">
     {{#if-eq orderBy "dueDate"}}
         <a class="button descending active" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>

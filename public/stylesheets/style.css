@@ -107,12 +107,12 @@ input:invalid {
     max-width: 75rem;
 }
 
-.navigation .button, .filters .button, .note .button, .note .imaginary-button {
+nav .button, .filters .button, .note .button, .note .imaginary-button {
     margin: 5px;
     width: 12rem;
 }
 
-.navigation, .filters, .note-heading, .note-body {
+nav, .filters, .note-heading, .note-body {
     display: flex;
     flex-flow: row;
 }
@@ -205,11 +205,11 @@ input:invalid {
 }
 
 @media all and (max-width: 25rem) {
-    .navigation {
+    nav {
         flex-flow: column;
     }
 
-    .navigation .button {
+    nav .button {
         width: auto;
     }
 
