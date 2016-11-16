@@ -8,7 +8,7 @@
     <a class="button" href="{{filter-url ../orderby ../finished}}&theme=dark">Switch style</a>
 {{/if-eq}}
 </nav>
-<section class="filters">
+<section about="filters" class="filters" >
     {{#if-eq orderBy "dueDate"}}
         <a class="button descending active" href="{{filter-url 'dueDate_desc' ../finished}}">By due date</a>
     {{else}}
@@ -34,7 +34,7 @@
         <a class="button last" href="{{filter-url orderBy 'true'}}">Show finished</a>
     {{/if}}
 </section>
-<section class="notes">
+<main about="notes" class="notes">
     {{#if notes.length}}
     {{#each notes}}
         <div class="note">
@@ -55,4 +55,4 @@
     {{else}}
         <p class="no-elements">There are no notes to display. Create a new note ;)</p>
     {{/if}}
-</section>
+</main>
